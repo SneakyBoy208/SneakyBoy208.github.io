@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+            <meta charset = "utf-8">
+            <title> Contact Us </title>
+            <style>
+                body {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            top: 2%;
+            left: 10%;
+            font-family: Helvetica, sans-serif;
+                }
+                p {
+                    font-size: clamp(18px, 1.4vw, 24px);
+                }
+                h1 {
+                    font-size: clamp(35px, 3vw, 70px);
+                    color: black;
+                }
+                h2 {
+                    font-size: clamp(25px, 2vw, 50px);
+                    color: black;
+                }
+                button {
+                    font-size: clamp(18px, 1.4vw, 24px);
+                    color: black;
+                    background-color: white;
+                    border: 2px solid rgb(5,10,190);
+                    padding: 10px 20px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                #success-Message, #fill-all-message {
+                    display: none;
+                    font-size: clamp(18px, 1.4vw, 24px);
+                    font-family: Helvetica, sans-serif;
+                    position: absolute;
+                    top: 80%;
+                    left: 10%;
+                }
+                #success-Message {
+                    color: green;
+                }
+                #fill-all-message {
+                    color: red;
+                }
+                #input-name, #input-email, #message {
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    box-sizing: border-box;
+                    border: 2px solid rgb(5,10,190);
+                    border-radius: 4px;
+                    font-size: clamp(18px, 1.4vw, 24px);
+                    font-family: Helvetica, sans-serif;
+                }
+                #input-name {
+                    width: 20%;
+                }
+                #input-email {
+                    width: 35%;
+                }
+                #message {
+                    width: 50%;
+                }
+                </style>
+                </head>
+                <body>
+                    <h1>Contact Us</h1>
+                    <h2>You can contact us byfilling out the form below:</h2>
+        <p>
+            Name : <br>
+            <input id="input-name" type="text" maxlength="20"> <br>
+            E-mail address : <br>
+            <input id="input-email" type="email" maxlength="30"> <br>
+            Message : <br>
+                <textarea id="message" rows="4" maxlength="120"> </textarea>
+        </p>
+        <p id="success-Message">Your message has been sent successfully !!</p>
+        <p id="fill-all-message">Please fill in all the fields before submitting your message !!</p>
+ <button type="submit" onclick="submitForm()">Submit</button> <br> <br>
+         <button onclick="window.location.href='ICT-mainpage.html';" > Back to Main Page </button>
+<script>
+const textarea = document.getElementById("message");
+textarea.addEventListener("input", function() {
+    let lignes = textarea.value.split("\n");
+    if (lignes.length > 4) {
+        textarea.value = lignes.slice(0, 4).join("\n");
+    }
+});
+function submitForm() {
+    const name = document.getElementById("input-name").value;
+    const email = document.getElementById("input-email").value;
+    const message = document.getElementById("message").value;
+    let successMessage = document.getElementById("success-Message");
+    let fillAllMessage = document.getElementById("fill-all-message");
+    successMessage.style.display = "none";
+    fillAllMessage.style.display = "none";
+    if (name && email && message) {
+                document.getElementById("success-Message")
+                .style.display = "block";
+                document.getElementById("input-name").value = "";
+                document.getElementById("input-email").value = "";
+                document.getElementById("message").value = "";
+    } else {
+                document.getElementById("fill-all-message")
+                .style.display = "block";
+    }
+}
+</script>
+</body>
+</html>

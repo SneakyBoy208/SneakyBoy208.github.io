@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title> Life at EIDE </title>
+        <style>
+        body {
+    background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+    url("Etudiants.jpg");
+     background-size: cover;
+     background-position: center;
+    background-repeat: no-repeat;    
+    min-height: 100vh;
+    }   
+    #grand-title {
+       font-size: clamp(35px, 3vw, 70px);
+    font-family: Helvetica, sans-serif;
+    color: black;
+    position: absolute;
+    top: 2%;
+    left: 40%;
+    right : 40%;
+    }
+#Text_timetable_p1 {
+  Color :rgb(15,5,200);
+    font-family: helvetica,Arial,Sans-Serif;
+    font-size: clamp(18px, 1.3vw, 24px);
+}
+#Text_timetable_p2 {
+  color :rgb(0,0,0);
+  font-family: helvetica,Arial,Sans-Serif;
+  font-size: clamp(18px, 1.3vw, 24px);
+}
+#popup1, #popup2, #popup3 {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 65%;
+    width: 30%;
+    height: 80%;
+    background: white;
+    border: 0.5vw solid rgb(15,10,200);
+    padding: 1%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+#case-1,#case-2,#case-3,#case-4 {
+    position: absolute;
+    left: 6%;
+    width: 14%;
+    height: 10%;
+    font-size: clamp(20px, 1.5vw, 30px);
+    font-family: Helvetica, Arial, Sans-Serif;
+    border: 3px solid rgb(15,10,200);
+}
+#case-1 { top: 15%; }
+#case-2 { top: 30%; }
+#case-3 { top: 45%; }
+#case-4 { top: 60%; }
+</style>
+</head>
+<body>
+    <h1 id = "grand-title"> Life at EIDE </h1>
+<button id = "case-1" onclick="ouvrirPopup('popup1')">
+    School Timetable
+</button>
+<button id = "case-2" onclick="ouvrirPopup('popup2')">
+    Cafeteria
+</button>
+<button id = "case-3" onclick="ouvrirPopup('popup3')">
+    School Rules
+</button>
+<button id = "case-4" onclick="window.location.href='ICT-mainpage.html'">
+    Back to Main Page
+</button>
+<div id="popup1">
+    <h1>School Timetable</h1>
+    <p id ="Text_timetable_p1">The school planing is organised in blocs of 45 minutes called "periods". Each day contains periods that start at 8 AM and finish at 5 PM, with a pause between 10:20 AM and 10:40 AM. </p>
+    <h3 id="Text_timetable_p2"> 
+    <strong> Here is an example of a Timetable :</strong> </h3>
+    <img src="My-Timetable-WU.jpg" width="70%"height="63%">
+    <br>
+</button>
+</div>
+<div id="popup2">
+    <h1>Cafeteria</h1>
+    <p id ="Text_timetable_p1"> The cantine is open from 12:15 PM to 1:45 PM. It offers various meals, including a vegetarian and vegan option. It also provides desserts, entrees, beverages and snacks.</p>
+   <br><br>
+    <img src="cantine.jpg" width="90%" >         
+</div>
+<div id="popup3">
+    <h1>School Rules</h1>
+    <p id ="Text_timetable_p1"> There are several rules that students must follow at school. These include : </p>
+    <br>
+    <ul id="Text_timetable_p2">
+        <li> Respecting the school environment and the people around you.</li>
+        <li> Arriving on time for classes and activities.</li>
+        <li> Students are expected to dress appropriately for the establishment.</li>
+        <li> Not using electronic devices in classrooms and cantine.</li>
+        <li> Refraining from bullying, harassment, or any form of discrimination.</li>
+</div>
+<script>
+function ouvrirPopup(popupId) {
+    let popups = ["popup1", "popup2", "popup3"];
+    for (let id of popups) {
+        let p = document.getElementById(id);
+
+        p.style.opacity = "0";
+        p.style.display = "none";
+    }
+    let popup = document.getElementById(popupId);
+    popup.style.display = "block";
+    setTimeout(() => {
+        popup.style.opacity = "1";
+    }, 10);
+}
+</script>
+</body>
+</html>

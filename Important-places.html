@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <meta charset = "utf-8">
+        <title> Important Places</title>
+        <style>
+body {
+    background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+    url("Etudiants.jpg");
+     background-size: cover;
+     background-position: center;
+    background-repeat: no-repeat;    
+    min-height: 100vh;
+    }   
+#grand-title {
+       font-size: clamp(30px,2.7vw,60px);
+    font-family: Helvetica, sans-serif;
+    color: black;
+    position: absolute;
+    top: 2%;
+    left: 30%;
+    right : 35%;
+    }
+#Text_timetable_p1 {
+  Color :rgb(15,5,200);
+    font-family: helvetica,Arial,Sans-Serif;
+    font-size: clamp(18px, 1.3vw, 24px);
+}
+#Text_timetable_p2 {
+  color :rgb(0,0,0);
+  font-family: helvetica,Arial,Sans-Serif;
+  font-size: clamp(18px, 1.3vw, 24px);
+}
+#popup1, #popup2, #popup3 {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 65%;
+    width: 30%;
+    height: 80%;
+    background: white;
+    border: 0.5vw solid rgb(15,10,200);
+    padding: 1%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+#case-1, #case-2, #case-3, #case-4 {
+  position: absolute;
+left: 6%;
+width: 14%;
+height: 10%;
+font-size: clamp(20px, 1.5vw, 30px);
+font-family: Helvetica, Arial, Sans-Serif;
+border: 3px solid rgb(15,10,200);
+}
+#case-1 { top: 15%; }
+#case-2 { top: 30%; }
+#case-3 { top: 45%; }
+#case-4 { top: 60%; }
+</style>
+    </head>
+<body>
+    <h1 id = "grand-title"> Important places at EIDE </h1>
+<button id = "case-1" onclick="ouvrirPopup('popup1')">
+    Library
+</button>
+<button id = "case-2" onclick="ouvrirPopup('popup2')">
+    Laboratory
+</button>
+<button id = "case-3" onclick="ouvrirPopup('popup3')">
+    Gymnasium
+</button>
+<button id = "case-4" onclick="window.location.href='ICT-mainpage.html'">
+    Back to Main Page
+</button>
+<div id="popup1">
+    <h1>Library</h1>
+    <p id ="Text_timetable_p1">The library is open from 8 AM to 5 PM. It offers a wide range of books, journals, and other resources for students and staff.</p>
+    <br><br>
+    <img src="library.jpg" width="100%" height="50%">
+</div>
+<div id="popup2">
+    <h1>Laboratory</h1>
+    <p id ="Text_timetable_p1"> Various rooms in the E-Building are dedicated to laboratory work. It offers various equipment and resources for students and teachers to do experiences for educational purposes.</p>
+   <br><br>
+    <img src="laboratory-eide.jpg" width="100%" height="50%">
+</div>
+<div id="popup3">
+    <h1>Gymnasium</h1>
+    <p id ="Text_timetable_p1"> The gymnasium, located in the Main Building, is open from 8 AM to 5 PM. It offers various sports equipment and facilities for students and teachers.</p>
+   <br><br>
+    <img src="gymnasium-eide.jpg" width="100%" height="55%">
+</div>
+<script>
+function ouvrirPopup(popupId) {
+
+    let popups = ["popup1", "popup2", "popup3"];
+
+    for (let id of popups) {
+        let p = document.getElementById(id);
+
+        p.style.opacity = "0";
+        p.style.display = "none";
+    }
+
+    let popup = document.getElementById(popupId);
+
+    popup.style.display = "block";
+
+    setTimeout(() => {
+        popup.style.opacity = "1";
+    }, 10);
+}
+</script>
+</body>
+</html>
